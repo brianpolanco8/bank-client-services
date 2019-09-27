@@ -4,18 +4,18 @@ const app = express()
 const sequelize = require('./data')
 const ejs = require('ejs')
 app.use(bodyParser.urlencoded({ extended: false }))
-const query = require('./queries')
+const query = require('./queries/queries')
 
 app.get('/', async (req, res) => {
     const users = await handleSelect('users')
     const usersCount = await query.getCountOfTable('users', 'firstname')
-    console.log(typeof (usersCount.usersCount))
+    console.log(typeof (usersCount))
     res.render('home', {
         users,
         usersCount: usersCount.usersCount,
         pageTitle: 'Home'
     })
-    res.status(200).send(usersCount)
+    // res.status(200).send(usersCount)
 })
 
 app.set('view engine', 'ejs')
