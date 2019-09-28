@@ -3,23 +3,15 @@ const bodyParser = require('body-parser')
 const app = express()
 const sequelize = require('./data')
 const ejs = require('ejs')
+const routes = require('./routes')
+
 app.use(bodyParser.urlencoded({ extended: false }))
-const query = require('./queries/queries')
-
-app.get('/', async (req, res) => {
-    const users = await handleSelect('users')
-    const usersCount = await query.getCountOfTable('users', 'firstname')
-    console.log(typeof (usersCount))
-    res.render('home', {
-        users,
-        usersCount: usersCount.usersCount,
-        pageTitle: 'Home'
-    })
-    // res.status(200).send(usersCount)
-})
-
+app.use(routes)
 app.set('view engine', 'ejs')
 app.set('views', 'views')
+
+
+
 app.use('/public', express.static('public'));
 
 
