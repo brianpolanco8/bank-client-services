@@ -13,12 +13,18 @@ exports.getHomePage = async (req, res) => {
 }
 
 exports.getRequestsPage = async (req, res) => {
+    const requestsInfo = await userQueries.getAllRequestsInfo()
     const users = await userQueries.getAllUsers()
+    const customers = await userQueries.getAllCustomers()
     const areas = await userQueries.getAreasName()
+    const locations = await userQueries.getLocations()
     res.render('requests', {
         pageTitle: 'Solicitudes',
         users,
-        areas
+        areas,
+        locations,
+        customers,
+        requestsInfo
     })
     // res.status(200).send('users', users)
 }
@@ -29,6 +35,14 @@ exports.getClientsPage = async (req, res) => {
         users,
         pageTitle: 'Clientes'
     })
+}
+
+exports.postRequests = async (req, res) => {
+    const { idCliente, idPersonal, idSucursal, Tipo, idArea, Descripcion } = req.body
+    console.log(req.body)
+    await userQueries.postRequests(idSucursal, idArea, Tipo, Descripcion, idCliente, idPersonal)
+    res.redirect('/requests')
+
 }
 
 exports.deleteUser = async (req, res) => {
