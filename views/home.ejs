@@ -1,58 +1,63 @@
 <%- include('./includes/head.ejs')%>
 <%- include('./includes/navigation.ejs')%>
-    <div id="page-container" class="sidebar-o sidebar-inverse enable-page-overlay side-scroll page-header-fixed page-header-modern main-content-boxed">
+<div id="page-container"
+    class="sidebar-o sidebar-inverse enable-page-overlay side-scroll page-header-fixed page-header-modern main-content-boxed">
     <main id="main-container">
-    <div class="content">
-        
-          <div class="row invisible" data-toggle="appear">
-                        <!-- Row #1 -->
-                        <div class="col-6 col-xl-3">
-                            <a class="block block-rounded block-bordered block-link-shadow" href="javascript:void(0)">
-                                <div class="block-content block-content-full clearfix">
-                                    <div class="float-right mt-15 d-none d-sm-block">
-                                        <i class="si si-bag fa-2x text-primary-light"></i>
-                                    </div>
-                                    <div class="font-size-h3 font-w600 text-primary" data-toggle="countTo" data-speed="1000" data-to="<%=usersCount%>"><%=usersCount%></div>
-                                    <div class="font-size-sm font-w600 text-uppercase text-muted">Usuarios</div>
-                                </div>
-                            </a>
+        <div class="content">
+
+            <div class="row invisible" data-toggle="appear">
+                <!-- Row #1 -->
+                <div class="col-6 col-xl-3">
+                    <a class="block block-rounded block-bordered block-link-shadow" href="javascript:void(0)">
+                        <div class="block-content block-content-full clearfix">
+                            <div class="float-right mt-15 d-none d-sm-block">
+                                <i class="si si-bag fa-2x text-primary-light"></i>
+                            </div>
+                            <div class="font-size-h3 font-w600 text-primary" data-toggle="countTo" data-speed="1000"
+                                data-to="<%=usersCount%>"><%=usersCount%></div>
+                            <div class="font-size-sm font-w600 text-uppercase text-muted">Usuarios</div>
                         </div>
-                        <div class="col-6 col-xl-3">
-                            <a class="block block-rounded block-bordered block-link-shadow" href="javascript:void(0)">
-                                <div class="block-content block-content-full clearfix">
-                                    <div class="float-right mt-15 d-none d-sm-block">
-                                        <i class="si si-wallet fa-2x text-earth-light"></i>
-                                    </div>
-                                    <div class="font-size-h3 font-w600 text-earth"><span data-toggle="countTo" data-speed="1000" data-to="780">0</span></div>
-                                    <div class="font-size-sm font-w600 text-uppercase text-muted">Solicitudes</div>
-                                </div>
-                            </a>
+                    </a>
+                </div>
+                <div class="col-6 col-xl-3">
+                    <a class="block block-rounded block-bordered block-link-shadow" href="javascript:void(0)">
+                        <div class="block-content block-content-full clearfix">
+                            <div class="float-right mt-15 d-none d-sm-block">
+                                <i class="si si-wallet fa-2x text-earth-light"></i>
+                            </div>
+                            <div class="font-size-h3 font-w600 text-earth"><span data-toggle="countTo" data-speed="1000"
+                                    data-to="<%=requestsCount%>">requestsCount</span></div>
+                            <div class="font-size-sm font-w600 text-uppercase text-muted">Solicitudes</div>
                         </div>
-                        <div class="col-6 col-xl-3">
-                            <a class="block block-rounded block-bordered block-link-shadow" href="javascript:void(0)">
-                                <div class="block-content block-content-full clearfix">
-                                    <div class="float-right mt-15 d-none d-sm-block">
-                                        <i class="si si-envelope-open fa-2x text-elegance-light"></i>
-                                    </div>
-                                    <div class="font-size-h3 font-w600 text-elegance" data-toggle="countTo" data-speed="1000" data-to="15">0</div>
-                                    <div class="font-size-sm font-w600 text-uppercase text-muted">Mensajes</div>
-                                </div>
-                            </a>
+                    </a>
+                </div>
+                <div class="col-6 col-xl-3">
+                    <a class="block block-rounded block-bordered block-link-shadow" href="javascript:void(0)">
+                        <div class="block-content block-content-full clearfix">
+                            <div class="float-right mt-15 d-none d-sm-block">
+                                <i class="si si-envelope-open fa-2x text-elegance-light"></i>
+                            </div>
+                            <div class="font-size-h3 font-w600 text-elegance" data-toggle="countTo" data-speed="1000"
+                                data-to="15">0</div>
+                            <div class="font-size-sm font-w600 text-uppercase text-muted">Mensajes</div>
                         </div>
-                        <div class="col-6 col-xl-3">
-                            <a class="block block-rounded block-bordered block-link-shadow" href="javascript:void(0)">
-                                <div class="block-content block-content-full clearfix">
-                                    <div class="float-right mt-15 d-none d-sm-block">
-                                        <i class="si si-users fa-2x text-pulse"></i>
-                                    </div>
-                                    <div class="font-size-h3 font-w600 text-pulse" data-toggle="countTo" data-speed="1000" data-to="4252">0</div>
-                                    <div class="font-size-sm font-w600 text-uppercase text-muted">En linea</div>
-                                </div>
-                            </a>
+                    </a>
+                </div>
+                <div class="col-6 col-xl-3">
+                    <a class="block block-rounded block-bordered block-link-shadow" href="javascript:void(0)">
+                        <div class="block-content block-content-full clearfix">
+                            <div class="float-right mt-15 d-none d-sm-block">
+                                <i class="si si-users fa-2x text-pulse"></i>
+                            </div>
+                            <div class="font-size-h3 font-w600 text-pulse" data-toggle="countTo" data-speed="1000"
+                                data-to="4252">0</div>
+                            <div class="font-size-sm font-w600 text-uppercase text-muted">En linea</div>
                         </div>
-                        <!-- END Row #1 -->
-                    </div>
+                    </a>
+                </div>
+                <!-- END Row #1 -->
+            </div>
         </div>
     </main>
-    </div>
-    <%- include('./includes/end.ejs') %>
+</div>
+<%- include('./includes/end.ejs') %>

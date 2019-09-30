@@ -2,23 +2,33 @@ const userQueries = require('../queries').userQueries
 
 exports.getHomePage = async (req, res) => {
 
-    const usersCount = await userQueries.getCountOfTable()
+    const usersCount = await userQueries.getCountOfTable('idCliente', 'tblCliente')
+    const requestsCount = await userQueries.getCountOfTable('idSolicitudCliente', 'tblSolicitudHeader')
     console.log('users', usersCount)
     res.render('home', {
-        // users,
-        usersCount: usersCount,
-        pageTitle: 'Home'
+        usersCount,
+        requestsCount,
+        pageTitle: 'Dashboard'
     })
 }
 
 exports.getRequestsPage = async (req, res) => {
     const users = await userQueries.getAllUsers()
-    // console.log('users', users)
+    const areas = await userQueries.getAreasName()
     res.render('requests', {
-        pageTitle: 'Requests',
-        users
+        pageTitle: 'Solicitudes',
+        users,
+        areas
     })
     // res.status(200).send('users', users)
+}
+
+exports.getClientsPage = async (req, res) => {
+    const users = await userQueries.getAllUsers()
+    res.render('clients', {
+        users,
+        pageTitle: 'Clientes'
+    })
 }
 
 exports.deleteUser = async (req, res) => {

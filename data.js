@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
 // Option 1: Passing parameters separately
-const sequelize = new Sequelize('adminbhdleon', 'root', 'root', {
+const sequelize = new Sequelize('DB_CLIENT_SERVICES', 'root', 'root', {
     host: '127.0.0.1',
     dialect: 'mysql',
     username: 'root',
