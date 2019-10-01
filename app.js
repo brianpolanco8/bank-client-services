@@ -1,9 +1,11 @@
+require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const sequelize = require('./data')
 const ejs = require('ejs')
 const routes = require('./routes')
+
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(routes)
