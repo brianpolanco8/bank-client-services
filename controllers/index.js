@@ -50,3 +50,9 @@ exports.deleteUser = async (req, res) => {
     await userQueries.deleteUser(id)
     res.redirect('/requests')
 }
+
+exports.deleteRequest = async (req, res) => {
+    const { idSolicitudCliente } = req.body
+    await userQueries.deleteRequest(idSolicitudCliente)
+    res.redirect('/requests')
+}

@@ -7,4 +7,5 @@ router.get('/clients', controllers.getClientsPage)
 router.get('/requests', controllers.getRequestsPage)
 router.post('/requests', controllers.postRequests)
 router.post('/users/delete', controllers.deleteUser)
+router.post('/requests/delete', controllers.deleteRequest)
 module.exports = router

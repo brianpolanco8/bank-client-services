@@ -7,7 +7,8 @@
             <div class="block">
                 <div class="block-header block-header-default">
                     <h3 class="block-title">Solicitudes</h3>
-                    <button type="button" class="btn btn-lg btn-circle btn-alt-success mr-5 mb-5" data-toggle="modal" data-target="#create-requests-modal">
+                    <button type="button" class="btn btn-lg btn-circle btn-alt-success mr-5 mb-5" data-toggle="modal"
+                        data-target="#create-requests-modal">
                         <i class="fa fa-plus"></i>
                     </button>
                 </div>
@@ -33,7 +34,8 @@
                                     <td class="font-w600"><%=request.Tipo%></td>
                                     <td><%=request.NombreArea%></td>
                                     <td>
-                                        <span class="badge badge-success"><%=request.Nombre%> <%=request.Apellido%></span>
+                                        <span class="badge badge-success"><%=request.Nombre%>
+                                            <%=request.Apellido%></span>
                                     </td>
                                     <td class="text-center">
                                         <div class="btn-group">
@@ -41,11 +43,12 @@
                                                 title="Edit" data-target="#edit-requests-modal">
                                                 <i class="fa fa-pencil"></i>
                                             </button>
-                                            <form action="/users/delete" method="POST">
+                                            <form action="/requests/delete" method="POST">
                                                 <button type="submit" class="btn btn-sm btn-secondary"
                                                     data-toggle="tooltip" title="Delete">
                                                     <i class="fa fa-times"></i>
-                                                    <input type="hidden" name="userId" value="<%=request.idSolicitudCliente%>">
+                                                    <input type="hidden" name="idSolicitudCliente"
+                                                        value="<%=request.idSolicitudCliente%>">
                                                 </button>
                                             </form>
                                         </div>

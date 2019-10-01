@@ -52,3 +52,10 @@ exports.deleteUser = async (id) => {
     console.log(results)
     return;
 }
+
+exports.deleteRequest = async (id) => {
+    const results = await sequelize.query(`DELETE FROM tblSolicitudHeader WHERE idSolicitudCliente = ${id}`)
+    console.log(results)
+    return;
+}
+
