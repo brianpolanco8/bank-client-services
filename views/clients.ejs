@@ -6,8 +6,9 @@
         <div class="content">
             <div class="block">
                 <div class="block-header block-header-default">
-                    <h3 class="block-title">Solicitudes</h3>
-                    <button type="button" class="btn btn-lg btn-circle btn-alt-success mr-5 mb-5">
+                    <h3 class="block-title">Clientes</h3>
+                    <button type="button" class="btn btn-lg btn-circle btn-alt-success mr-5 mb-5" data-toggle="modal"
+                        data-target="#create-client-modal">
                         <i class="fa fa-plus"></i>
                     </button>
                 </div>
@@ -59,6 +60,8 @@
             </div>
         </div>
     </main>
+    <%- include('./modals/clients/create-client.ejs') %>
+    <%- include('./modals/clients/edit-client.ejs') %>
 
 </div>
 <!-- END Full Table -->

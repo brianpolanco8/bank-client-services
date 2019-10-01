@@ -1,0 +1,102 @@
+<%- include('../../includes/head.ejs')%>
+<%- include('../../includes/navigation.ejs')%>
+
+<div class="modal" id="create-client-modal" tabindex="-1" role="dialog" aria-labelledby="create-client-modal"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="block block-themed block-transparent mb-0">
+                <div class="block-header bg-primary-dark">
+                    <h3 class="block-title">Crear clientes</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
+                            <i class="si si-close"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content">
+                    <form action="clients" method="post">
+                        <div class="form-group row">
+                            <div class="col-6">
+                                <div class="form-material floating">
+                                    <input type="text" class="form-control" id="Nombre" name="Nombre">
+                                    <label for="Nombre">Nombre</label>
+                                </div>
+                            </div>
+                            <div class="col-6 row">
+                                <div class="form-material floating">
+                                    <input type="text" class="form-control" id="Apellido" name="Apellido">
+                                    <label for="Apellido">Apellido</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-9">
+                                <div class="form-material floating">
+                                    <input type="text" class="form-control" id="Cedula" name="Cedula">
+                                    <label for="Cedula">Cedula</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-9">
+                                <div class="form-material floating">
+                                    <input type="text" class="form-control" id="Direccion" name="Direccion">
+                                    <label for="Direccion">Direccion</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-9">
+                                <div class="form-material floating">
+                                    <input type="text" class="form-control" id="Provincia" name="Provincia">
+                                    <label for="Provincia">Provincia</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-9">
+                                <div class="form-material floating">
+                                    <input type="text" class="form-control" id="Telefono" name="Telefono">
+                                    <label for="Telefono">Telefono</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- AREA SELECT -->
+                        <div class="form-group row">
+                            <div class="col-md-9">
+                                <div class="form-material floating">
+                                    <input type="text" class="form-control" id="Correo" name="Correo">
+                                    <label for="Correo">Correo</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DESCRIPCION TEXTAREA -->
+
+
+                        <!-- DESCRIPCION BUTTON -->
+                        <div class="form-group row">
+                            <div class="col-md-9">
+                                <button type="submit" class="btn btn-alt-primary">Crear</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-alt-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Normal Modal -->
+
+<%- include('../../includes/end.ejs') %>

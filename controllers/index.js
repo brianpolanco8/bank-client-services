@@ -45,6 +45,14 @@ exports.postRequests = async (req, res) => {
 
 }
 
+exports.postClients = async (req, res) => {
+    const { Cedula, Nombre, Apellido, Direccion, Provincia, Telefono, Correo } = req.body
+    console.log(req.body)
+    await userQueries.postUsers(Cedula, Nombre, Apellido, Direccion, Provincia, Telefono, Correo)
+    res.redirect('/clients')
+
+}
+
 exports.deleteUser = async (req, res) => {
     const id = req.body.userId
     await userQueries.deleteUser(id)
