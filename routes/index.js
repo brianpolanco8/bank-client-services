@@ -4,7 +4,7 @@ const controllers = require('../controllers')
 
 // router.get('/', controllers.getHomePage)
 router.get('/', (req, res) => {
-    res.send({ working: yes })
+    res.send({ working: "yes" })
 })
 router.get('/clients', controllers.getClientsPage)
 router.get('/requests', controllers.getRequestsPage)
