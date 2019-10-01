@@ -54,6 +54,14 @@ exports.postUsers = async (cedula, Nombre, Apellido, Direccion, Provincia, Telef
     await sequelize.query(`INSERT INTO tblCliente (idEntidad) VALUES (LAST_INSERT_ID())`)
 }
 
+exports.postCustomer = async (cedula, Nombre, Apellido, Direccion, Provincia, Telefono, Correo) => {
+    await sequelize.query(`INSERT INTO tblEntidad (
+        cedula, Nombre, Apellido, Direccion, Provincia, Telefono, Correo) VALUES
+        ('${cedula}', '${Nombre}', '${Apellido}', '${Direccion}', '${Provincia}', '${Telefono}', '${Correo}')`);
+    await sequelize.query(`INSERT INTO tblPersonal  (idEntidad) VALUES (LAST_INSERT_ID())`)
+}
+
+
 exports.deleteUser = async (id) => {
     const results = await sequelize.query(`DELETE FROM tblEntidad WHERE idEntidad = ${id}`)
     console.log(results)
@@ -66,3 +74,8 @@ exports.deleteRequest = async (id) => {
     return;
 }
 
+exports.deleteCustomer = async (id) => {
+    const results = await sequelize.query(`DELETE FROM tblEntidad WHERE idEntidad = ${id}`)
+    console.log(results)
+    return;
+}

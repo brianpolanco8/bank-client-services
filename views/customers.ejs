@@ -1,0 +1,68 @@
+<%- include('./includes/head.ejs')%>
+<%- include('./includes/navigation.ejs')%>
+<div id="page-container"
+    class="sidebar-o sidebar-inverse enable-page-overlay side-scroll page-header-fixed page-header-modern main-content-boxed">
+    <main id="main-container">
+        <div class="content">
+            <div class="block">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Personal</h3>
+                    <button type="button" class="btn btn-lg btn-circle btn-alt-success mr-5 mb-5" data-toggle="modal"
+                        data-target="#create-customer-modal">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+                <div class="block-content">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-vcenter">
+                            <thead>
+                                <tr>
+                                    <th class="text-center" style="width: 100px;"><i class="si si-user"></i></th>
+                                    <th>Name</th>
+                                    <th style="width: 30%;">Email</th>
+                                    <th style="width: 15%;">Access</th>
+                                    <th class="text-center" style="width: 100px;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for (user of users) { %>
+                                <tr>
+                                    <td class="text-center">
+                                        <img class="img-avatar img-avatar48"
+                                            src="/public/assets/media/avatars/avatar12.jpg" alt="">
+                                    </td>
+                                    <td class="font-w600"><%=user.Nombre%> <%=user.Apellido%></td>
+                                    <td><%=user.Correo%></td>
+                                    <td>
+                                        <span class="badge badge-success">VIP</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-secondary" data-toggle="modal"
+                                                title="Edit" data-target="#modal-normal">
+                                                <i class="fa fa-pencil"></i>
+                                            </button>
+                                            <form action="/customers/delete" method="POST">
+                                                <button type="submit" class="btn btn-sm btn-secondary"
+                                                    data-toggle="tooltip" title="Delete">
+                                                    <i class="fa fa-times"></i>
+                                                    <input type="hidden" name="userId" value="<%=user.idEntidad%>">
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include('./modals/customer/create-customer.ejs') %>
+    <%- include('./modals/customer/edit-customer.ejs') %>
+
+</div>
+<!-- END Full Table -->
+<%- include('./includes/end.ejs') %>

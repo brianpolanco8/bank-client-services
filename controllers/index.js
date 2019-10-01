@@ -37,6 +37,14 @@ exports.getClientsPage = async (req, res) => {
     })
 }
 
+exports.getCustomersPage = async (req, res) => {
+    const users = await userQueries.getAllCustomers()
+    res.render('customers', {
+        users,
+        pageTitle: 'Clientes'
+    })
+}
+
 exports.postRequests = async (req, res) => {
     const { idCliente, idPersonal, idSucursal, Tipo, idArea, Descripcion } = req.body
     console.log(req.body)
@@ -53,14 +61,28 @@ exports.postClients = async (req, res) => {
 
 }
 
+exports.postCustomer = async (req, res) => {
+    const { Cedula, Nombre, Apellido, Direccion, Provincia, Telefono, Correo } = req.body
+    console.log(req.body)
+    await userQueries.postCustomer(Cedula, Nombre, Apellido, Direccion, Provincia, Telefono, Correo)
+    res.redirect('/customers')
+
+}
+
 exports.deleteUser = async (req, res) => {
     const id = req.body.userId
     await userQueries.deleteUser(id)
-    res.redirect('/requests')
+    res.redirect('/clients')
 }
 
 exports.deleteRequest = async (req, res) => {
     const { idSolicitudCliente } = req.body
     await userQueries.deleteRequest(idSolicitudCliente)
     res.redirect('/requests')
+}
+
+exports.deletePersonal = async (req, res) => {
+    const id = req.body.userId
+    await userQueries.deleteCustomer(id)
+    res.redirect('/customers')
 }

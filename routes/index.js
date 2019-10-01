@@ -4,9 +4,12 @@ const controllers = require('../controllers')
 
 router.get('/', controllers.getHomePage)
 router.get('/clients', controllers.getClientsPage)
+router.get('/customers', controllers.getCustomersPage)
 router.get('/requests', controllers.getRequestsPage)
 router.post('/clients', controllers.postClients)
+router.post('/customers', controllers.postCustomer)
 router.post('/requests', controllers.postRequests)
 router.post('/users/delete', controllers.deleteUser)
+router.post('/customers/delete', controllers.deletePersonal)
 router.post('/requests/delete', controllers.deleteRequest)
 module.exports = router
