@@ -39,10 +39,14 @@
                                     </td>
                                     <td class="text-center">
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-secondary" data-toggle="modal"
-                                                title="Edit" data-target="#edit-requests-modal">
+                                            <a type="button" class="edit-request btn btn-sm btn-secondary" data-toggle="modal"
+                                                title="Edit" data-target="#edit-request-modal" data-idSolicitudCliente="<%=request.idSolicitudCliente%>"
+                                                data-idSolicitud="<%=request.idSolicitud%>"  data-idCliente="<%=request.idCliente%>" data-idPersonal="<%=request.idPersonal%>" data-idSucursal="<%=request.idSucursal%>"
+                                                data-Tipo="<%=request.Tipo%>"
+                                                data-idArea="<%=request.idArea%>"
+                                                data-description="<%=request.Descripcion%>">
                                                 <i class="fa fa-pencil"></i>
-                                            </button>
+                                            </a>
                                             <form action="/requests/delete" method="POST">
                                                 <button type="submit" class="btn btn-sm btn-secondary"
                                                     data-toggle="tooltip" title="Delete">
@@ -65,5 +69,53 @@
     <%- include('./modals/requests/create-requests.ejs') %>
     <%- include('./modals/requests/edit-requests.ejs') %>
 </div>
+
+<script src="/public/assets/js/core/jquery.min.js"></script>
+<script>
+    let idSolicitudCliente,tipo, idCliente, idPersonal, idSucursal,  idAreaEncargada, description, idSolicitud;
+     $('.edit-request').on('click', function (event) {
+            event.preventDefault();
+            // idSolicitudCliente = $(this).attr('data-idSolicitudCliente');
+            // tipo = $(this).attr('data-Tipo');
+            idCliente = $(this).attr('data-idCliente');
+            console.log('idCliente', idCliente)
+            // description = $(this).attr('data-description');
+            // idPersonal = $(this).attr('data-idPersonal');
+            // idSucursal = $(this).attr('data-idSucursal');
+            // idAreaEncargada = $(this).attr('data-idAreaEncargada')
+            // idSolicitud = $(this).attr('data-idSolicitud')
+            // document.getElementById('edit-request-form').action = `/request/${idSolicitudCliente}`;
+            // document.getElementById('edit-request-form').method = "POST"
+            idClienteSelect = document.getElementById('edit-idCliente');
+            console.log('idClienteSelect', idClienteSelect)
+            // idPersonalSelect = document.getElementById('edit-idPersonal');
+            // idSucursalSelect = document.getElementById('edit-idSucursal');
+            // idAreaSelect = document.getElementById('edit-idArea');
+            // document.getElementById('edit-Descripcion').value = description;
+            // tipoSelect = document.getElementById('edit-Tipo');
+            // document.getElementById('idSolicitudCliente').value = idSolicitudCliente
+            // document.getElementById('idSolicitud').value = idSolicitud
+            handleSelectedOption(idClienteSelect, idCliente);
+            // handleSelectedOption(idPersonalSelect, idPersonal);
+            // handleSelectedOption(idSucursalSelect, idSucursal);
+            // handleSelectedOption(idAreaSelect, idAreaEncargada)
+            // handleSelectedOption(tipoSelect, tipo)
+            // showEditRequestModal();
+        });
+
+        function showEditRequestModal() {
+            $('#edit-request-modal').modal('show');
+        }
+
+        function handleSelectedOption(select, selectedOption) {
+            let opts = select.options;
+            for (let opt, j = 0; opt = opts[j]; j++) {
+                if (opt.value == selectedOption) {
+                    select.selectedIndex = j;
+                    break;
+                }
+            }
+        }
+</script>
 <!-- END Full Table -->
 <%- include('./includes/end.ejs') %>

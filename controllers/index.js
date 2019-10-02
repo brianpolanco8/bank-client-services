@@ -53,6 +53,13 @@ exports.postRequests = async (req, res) => {
 
 }
 
+exports.editRequests = async (req, res) => {
+    const { idSolicitudCliente, idSolicitud, idCliente, idPersonal, idSucursal, Tipo, idArea, Descripcion } = req.body
+    await userQueries.editRequests(idSolicitudCliente, idSolicitud, idSucursal, idArea, Tipo, Descripcion, idCliente, idPersonal)
+    res.redirect('/requests')
+    console.log(req.body)
+}
+
 exports.postClients = async (req, res) => {
     const { Cedula, Nombre, Apellido, Direccion, Provincia, Telefono, Correo } = req.body
     console.log(req.body)

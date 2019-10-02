@@ -1,7 +1,7 @@
 <%- include('../../includes/head.ejs')%>
 <%- include('../../includes/navigation.ejs')%>
 
-<div class="modal" id="edit-requests-modal" tabindex="-1" role="dialog" aria-labelledby="modal-normal"
+<div class="modal" id="edit-request-modal" tabindex="-1" role="dialog" aria-labelledby="create-requests-modal"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -15,55 +15,67 @@
                     </div>
                 </div>
                 <div class="block-content">
-                    <form action="be_forms_elements_material.html" method="post" onsubmit="return false;">
+                    <form action="requests" method="post" id="edit-request-form">
                         <div class="form-group row">
                             <div class="col-md-9">
                                 <div class="form-material floating">
-                                    <input type="text" class="form-control" id="material-text2" name="material-text2">
-                                    <label for="material-text2">Username</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-9">
-                                <div class="form-material floating">
-                                    <input type="password" class="form-control" id="material-password2"
-                                        name="material-password2">
-                                    <label for="material-password2">Password</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-12">
-                                <div class="form-material floating">
-                                    <input type="email" class="form-control" id="material-email2"
-                                        name="material-email2">
-                                    <label for="material-email2">Email</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-6">
-                                <div class="form-material floating">
-                                    <input type="text" class="form-control" id="material-gridf2" name="material-gridf2">
-                                    <label for="material-gridf2">Grid Input</label>
-                                </div>
-                            </div>
-                            <div class="col-6 row">
-                                <div class="form-material floating">
-                                    <input type="text" class="form-control" id="material-gridl2" name="material-gridl2">
-                                    <label for="material-gridl2">Grid Input</label>
+                                    <select class="form-control" id="edit-idCliente" name="idCliente">
+                                        <option value="" disabled selected>Seleccionar cliente</option>
+                                        <% for (client of users) { %>
+                                        <option value=" <%=client.idCliente%>"><%=client.Nombre%> <%=client.Apellido%>
+                                        </option>
+                                        <%} %>
+                                    </select>
                                 </div>
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <div class="col-md-9">
+                                <div class="form-material floating">
+                                    <select class="form-control" id="edit-idPersonal" name="idPersonal">
+                                        <option value="" disabled selected>Seleccionar Personal</option>
+                                        <% for (customer of customers) { %>
+                                        <option value=" <%=customer.idPersonal%>"><%=customer.Nombre%>
+                                            <%=customer.Apellido%></option>
+                                        <%} %>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-9">
+                                <div class="form-material floating">
+                                    <select class="form-control" id="edit-idSucursal" name="idSucursal">
+                                        <option value="" disabled selected>Seleccionar sucursal</option>
+                                        <% for (location of locations) { %>
+                                        <option value=" <%=location.idSucursal%>"><%=location.Calle%> </option>
+                                        <%} %>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-9">
+                                <div class="form-material floating">
+                                    <select class="form-control" id="edit-Tipo" name="Tipo">
+                                        <option value="" disabled selected>Seleccionar tipo de solicitud</option>
+                                        <option value="Queja">Queja</option>
+                                        <option value="Queja">Sugerencia</option>
+                                        <option value="Queja">Reclamación</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
 
 
                         <!-- AREA SELECT -->
                         <div class="form-group row">
                             <div class="col-md-9">
                                 <div class="form-material floating">
-                                    <select class="form-control" id="idArea" name="idArea">
+                                    <select class="form-control" id="edit-idArea" name="idArea">
                                         <option value="" disabled selected>Seleccionar area</option>
                                         <% for (area of areas) { %>
                                         <option value=" <%=area.idArea%>"><%=area.NombreArea%></option>
@@ -78,15 +90,21 @@
                         <div class="form-group row">
                             <div class="col-12">
                                 <div class="form-material floating">
-                                    <textarea class="form-control" id="Descripcion" name="Descripcion"
+                                    <textarea class="form-control" id="edit-Descripcion" name="Descripcion"
                                         rows="8"></textarea>
                                     <label for="Descripcion">Descripcion</label>
                                 </div>
                             </div>
                         </div>
+
+                        <input type="hidden"  name="idSolicitudCliente" id="idSolicitudCliente">
+
+                        <input type="hidden"  name="idSolicitud" id="idSolicitud">
+
+                        <!-- DESCRIPCION BUTTON -->
                         <div class="form-group row">
                             <div class="col-md-9">
-                                <button type="submit" class="btn btn-alt-primary">Submit</button>
+                                <button type="submit" class="btn btn-alt-primary">Crear</button>
                             </div>
                         </div>
                     </form>
@@ -94,9 +112,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-alt-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-alt-success" data-dismiss="modal">
-                    <i class="fa fa-check"></i> Perfect
-                </button>
+
             </div>
         </div>
     </div>

@@ -47,6 +47,12 @@ exports.postRequests = async (idSucursal, idArea, Tipo, Descripcion, idCliente, 
     return;
 }
 
+exports.editRequests = async (idSolicitudCliente, idSolicitud, idSucursal, idArea, Tipo, Descripcion, idCliente, idPersonal) => {
+    await sequelize.query(`UPDATE tblSolicitudHeader SET idCliente= ${idCliente}, idPersonal = ${idPersonal}, FechaActualizacion = ${moment().format("YYYY-MM-DD HH:mm:ss")} WHERE idSolicitudCliente = ${idSolicitudCliente}`)
+
+    await sequelize.query(`UPDATE tblSolicitudDetail SET idSucursal = ${idSucursal}, idArea = ${idArea}, Tipo = ${Tipo}, Descripcion = ${Descripcion} WHERE idSolicitud = ${idSolicitud}`)
+}
+
 exports.postUsers = async (cedula, Nombre, Apellido, Direccion, Provincia, Telefono, Correo) => {
     await sequelize.query(`INSERT INTO tblEntidad (
         cedula, Nombre, Apellido, Direccion, Provincia, Telefono, Correo) VALUES
