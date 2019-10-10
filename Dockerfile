@@ -1,7 +1,9 @@
-FROM nromero125/dokku-php7.3
-COPY nginx/default /etc/nginx/sites-available
-COPY . /app
+FROM node:latest
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY package.json ./
 RUN npm install
-RUN npm install -g pm2
-RUN pm2 start app.js
-CMD ["/run.sh"]
+COPY . . 
+EXPOSE 8000
+# RUN pm2 start app.js
+CMD ["npm", "run", "dev"]
