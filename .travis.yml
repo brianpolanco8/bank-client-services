@@ -1,0 +1,22 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -f dockerfile.dev -t brianpolanco/node .
+
+script:
+  - docker run brianpolanco/node
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $ACCESS_KEY_ID
+  secret_access_key:
+    secure: $SECRET_ACCESS_KEY 
+  region: "us-east-2"
+  app: "node-banking-services"
+  env: "NodeBankingServices-env"
+  bucket_name: "node-banking-services-s3-bucket-123"
+  on:
+    branch: master

@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js",
-    "test": "jest --watchAll"
+    "start": "node app.js",
+    "test": "jest "
   },
   "author": "",
   "license": "ISC",
