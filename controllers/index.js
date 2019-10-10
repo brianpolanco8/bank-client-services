@@ -8,7 +8,7 @@ exports.getHomePage = async (req, res) => {
     res.render('home', {
         usersCount,
         requestsCount,
-        pageTitle: 'Dashboard'
+        pageTitle: 'Home'
     })
 }
 
